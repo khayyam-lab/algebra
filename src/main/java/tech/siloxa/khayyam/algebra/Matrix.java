@@ -21,12 +21,16 @@ public class Matrix<T> {
         this.n = matrix.get(0).n();
     }
 
+    public static <T> Matrix<T> of(Vector<T> ... vectors) {
+        return new Matrix<T>(vectors);
+    }
+
     public static <T> Matrix<T> of(List<Vector<T>> matrix) {
         return new Matrix<T>(matrix);
     }
 
     public static <T> Matrix<T> identity(int n) {
-
+        return null;
     }
 
     public List<Vector<T>> value() {
