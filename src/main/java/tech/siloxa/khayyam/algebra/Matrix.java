@@ -58,6 +58,23 @@ public class Matrix<T extends Number> {
         return n;
     }
 
+    public Scalar<T> get(int n, int m) {
+        return matrix.get(n).get(m);
+    }
+
+    public boolean isIdentity() {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (i == j && !get(i, j).value().equals(1)) {
+                    return false;
+                } else if(i != j && !get(i, j).value().equals(0)) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
     @Override
     public String toString() {
         return "Matrix " + m + "*" + n + " [\n"

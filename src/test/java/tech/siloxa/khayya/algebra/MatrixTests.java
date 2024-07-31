@@ -6,7 +6,7 @@ import tech.siloxa.khayyam.algebra.Vector;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class MatrixTests {
 
@@ -39,6 +39,20 @@ public class MatrixTests {
         final Matrix<Integer> matrix = Matrix.of(vectors);
 
         assertEquals(matrix.value(), vectors);
+    }
+
+    @Test
+    void isIdentityForNonIdentityMatrix() {
+        final Matrix<Integer> matrix = Matrix.of(vectors);
+
+        assertFalse(matrix.isIdentity());
+    }
+
+    @Test
+    void isIdentityForIdentityMatrix() {
+        final Matrix<Integer> matrix = Matrix.identity(3);
+
+        assertTrue(matrix.isIdentity());
     }
 
     @Test

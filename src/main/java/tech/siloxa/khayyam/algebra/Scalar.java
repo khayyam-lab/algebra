@@ -1,5 +1,7 @@
 package tech.siloxa.khayyam.algebra;
 
+import java.util.Objects;
+
 public class Scalar<T extends Number> {
 
     private final T scalar;
@@ -14,6 +16,10 @@ public class Scalar<T extends Number> {
 
     public T value() {
         return scalar;
+    }
+
+    public boolean equals(T value) {
+        return Objects.equals(scalar, value);
     }
 
     @Override

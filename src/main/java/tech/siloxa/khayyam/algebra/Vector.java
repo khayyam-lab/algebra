@@ -36,6 +36,10 @@ public class Vector<T extends Number> {
         return n;
     }
 
+    public Scalar<T> get(int n) {
+        return vector.get(n);
+    }
+
     @Override
     public String toString() {
         return "[" + vector.stream().map(Scalar::toString).collect(Collectors.joining(", ")) + "]";
