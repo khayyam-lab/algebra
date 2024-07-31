@@ -2,7 +2,7 @@ package tech.siloxa.khayyam.algebra;
 
 import java.util.List;
 
-public class Tensor<T> {
+public class Tensor<T extends Number> {
 
     private final List<Matrix<T>> tensor;
 
@@ -10,7 +10,7 @@ public class Tensor<T> {
         this.tensor = tensor;
     }
 
-    public static <T> Tensor<T> of(List<Matrix<T>> tensor) {
+    public static <T extends Number> Tensor<T> of(List<Matrix<T>> tensor) {
         return new Tensor<T>(tensor);
     }
 

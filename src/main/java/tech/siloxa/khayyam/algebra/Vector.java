@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Vector<T> {
+public class Vector<T extends Number> {
 
     private final List<Scalar<T>> vector;
     private final Integer n;
@@ -19,12 +19,12 @@ public class Vector<T> {
         this.n = scalars.size();
     }
 
-    public static <T> Vector<T> of(List<Scalar<T>> scalars) {
+    public static <T extends Number> Vector<T> of(List<Scalar<T>> scalars) {
         return new Vector<T>(scalars);
     }
 
     @SafeVarargs
-    public static <T> Vector<T> of(T ... scalars) {
+    public static <T extends Number> Vector<T> of(T ... scalars) {
         return new Vector<T>(scalars);
     }
 
@@ -38,7 +38,7 @@ public class Vector<T> {
 
     @Override
     public String toString() {
-        return "V " + n + " [" + vector.stream().map(Scalar::toString).collect(Collectors.joining(", ")) + ']';
+        return "[" + vector.stream().map(Scalar::toString).collect(Collectors.joining(", ")) + "]";
     }
 
     public void print() {

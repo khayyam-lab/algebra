@@ -1,6 +1,6 @@
 package tech.siloxa.khayyam.algebra;
 
-public class Scalar<T> {
+public class Scalar<T extends Number> {
 
     private final T scalar;
 
@@ -8,7 +8,7 @@ public class Scalar<T> {
         this.scalar = scalar;
     }
 
-    public static <T> Scalar<T> of(T scalar) {
+    public static <T extends Number> Scalar<T> of(T scalar) {
         return new Scalar<T>(scalar);
     }
 
@@ -18,7 +18,7 @@ public class Scalar<T> {
 
     @Override
     public String toString() {
-        return "S(" + scalar + ')';
+        return String.valueOf(scalar);
     }
 
     public void print() {

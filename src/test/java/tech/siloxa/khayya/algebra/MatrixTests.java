@@ -47,4 +47,11 @@ public class MatrixTests {
 
         matrix.print();
     }
+
+    @Test
+    void printIdentity() {
+        final Matrix<Integer> matrix = Matrix.identity(3);
+
+        matrix.print();
+    }
 }
