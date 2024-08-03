@@ -64,9 +64,9 @@ public class Matrix {
     public boolean isIdentity() {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                if (i == j && get(i, j).equals(1)) {
+                if (i == j && !get(i, j).equals(1)) {
                     return false;
-                } else if(i != j && get(i, j).equals(0)) {
+                } else if(i != j && !get(i, j).equals(0)) {
                     return false;
                 }
             }

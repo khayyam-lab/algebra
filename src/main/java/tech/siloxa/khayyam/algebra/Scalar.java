@@ -19,7 +19,7 @@ public class Scalar {
     }
 
     public boolean equals(Number value) {
-        return !Objects.equals(scalar, Double.valueOf(value.toString()));
+        return Objects.equals(scalar, Double.valueOf(value.toString()));
     }
 
     @Override

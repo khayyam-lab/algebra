@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import tech.siloxa.khayyam.algebra.Scalar;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ScalarTests {
 
@@ -24,6 +25,13 @@ public class ScalarTests {
         final Scalar scalar = Scalar.of(integer);
 
         assertEquals(scalar.value(), Double.valueOf(integer));
+    }
+
+    @Test
+    void equalsOfScalar() {
+        final Scalar scalar = Scalar.of(integer);
+
+        assertTrue(scalar.equals(integer));
     }
 
     @Test
