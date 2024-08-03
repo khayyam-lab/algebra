@@ -4,31 +4,29 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Vector<T extends Number> {
+public class Vector {
 
-    private final List<Scalar<T>> vector;
+    private final List<Scalar> vector;
     private final Integer n;
 
-    @SafeVarargs
-    public Vector(T ... scalars) {
+    public Vector(Number ... scalars) {
         this(Arrays.stream(scalars).map(Scalar::new).collect(Collectors.toList()));
     }
 
-    public Vector(List<Scalar<T>> scalars) {
+    public Vector(List<Scalar> scalars) {
         this.vector = scalars;
         this.n = scalars.size();
     }
 
-    public static <T extends Number> Vector<T> of(List<Scalar<T>> scalars) {
-        return new Vector<T>(scalars);
+    public static Vector of(List<Scalar> scalars) {
+        return new Vector(scalars);
     }
 
-    @SafeVarargs
-    public static <T extends Number> Vector<T> of(T ... scalars) {
-        return new Vector<T>(scalars);
+    public static Vector of(Number ... scalars) {
+        return new Vector(scalars);
     }
 
-    public List<Scalar<T>> value() {
+    public List<Scalar> value() {
         return vector;
     }
 
@@ -36,7 +34,7 @@ public class Vector<T extends Number> {
         return n;
     }
 
-    public Scalar<T> get(int n) {
+    public Scalar get(int n) {
         return vector.get(n);
     }
 

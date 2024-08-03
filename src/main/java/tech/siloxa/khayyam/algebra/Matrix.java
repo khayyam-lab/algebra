@@ -5,35 +5,34 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Matrix<T extends Number> {
+public class Matrix {
 
-    private final List<Vector<T>> matrix;
+    private final List<Vector> matrix;
     private final Integer m;
     private final Integer n;
 
-    @SafeVarargs
-    public Matrix(Vector<T>... vectors) {
+    public Matrix(Vector ... vectors) {
         this(Arrays.stream(vectors).collect(Collectors.toList()));
     }
 
-    public Matrix(List<Vector<T>> matrix) {
+    public Matrix(List<Vector> matrix) {
         this.matrix = matrix;
         this.m = matrix.size();
         this.n = matrix.get(0).n();
     }
 
-    public static <T extends Number> Matrix<T> of(Vector<T>... vectors) {
-        return new Matrix<T>(vectors);
+    public static Matrix of(Vector ... vectors) {
+        return new Matrix(vectors);
     }
 
-    public static <T extends Number> Matrix<T> of(List<Vector<T>> matrix) {
-        return new Matrix<T>(matrix);
+    public static Matrix of(List<Vector> matrix) {
+        return new Matrix(matrix);
     }
 
-    public static Matrix<Integer> identity(int n) {
-        final List<Vector<Integer>> vectors = new ArrayList<>();
+    public static Matrix identity(int n) {
+        final List<Vector> vectors = new ArrayList<>();
         for (int i = 0; i < n; i++) {
-            final List<Scalar<Integer>> row = new ArrayList<>();
+            final List<Scalar> row = new ArrayList<>();
             for (int j = 0; j < n; j++) {
                 if (i == j) {
                     row.add(Scalar.of(1));
@@ -46,7 +45,7 @@ public class Matrix<T extends Number> {
         return Matrix.of(vectors);
     }
 
-    public List<Vector<T>> value() {
+    public List<Vector> value() {
         return matrix;
     }
 
@@ -58,16 +57,16 @@ public class Matrix<T extends Number> {
         return n;
     }
 
-    public Scalar<T> get(int n, int m) {
+    public Scalar get(int n, int m) {
         return matrix.get(n).get(m);
     }
 
     public boolean isIdentity() {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                if (i == j && !get(i, j).value().equals(1)) {
+                if (i == j && get(i, j).equals(1)) {
                     return false;
-                } else if(i != j && !get(i, j).value().equals(0)) {
+                } else if(i != j && get(i, j).equals(0)) {
                     return false;
                 }
             }

@@ -14,31 +14,31 @@ public class VectorTests {
 
     @Test
     void instantiateVector() {
-        final Vector<Integer> vector = new Vector<>(integer);
+        final Vector vector = new Vector(integer);
     }
 
     @Test
     void instantiateStaticVector() {
-        final Vector<Integer> vector = Vector.of(integer);
+        final Vector vector = Vector.of(integer);
     }
 
     @Test
     void instantiateSingleVector() {
-        final Vector<Integer> vector = Vector.of(integer);
+        final Vector vector = Vector.of(integer);
 
         assertEquals(vector.n(), 1);
     }
 
     @Test
     void getValueOfVector() {
-        final Vector<Integer> vector = Vector.of(integer);
+        final Vector vector = Vector.of(integer);
 
-        assertEquals(vector.value().get(0).value(), integer);
+        assertEquals(vector.value().get(0).value(), Double.valueOf(integer));
     }
 
     @Test
     void print() {
-        final Vector<Integer> vector = Vector.of(integer);
+        final Vector vector = Vector.of(integer);
 
         vector.print();
     }

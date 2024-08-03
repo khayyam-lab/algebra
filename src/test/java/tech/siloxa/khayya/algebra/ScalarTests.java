@@ -11,24 +11,24 @@ public class ScalarTests {
 
     @Test
     void instantiateScalar() {
-        final Scalar<Integer> scalar = new Scalar<>(integer);
+        final Scalar scalar = new Scalar(integer);
     }
 
     @Test
     void instantiateStaticScalar() {
-        final Scalar<Integer> scalar = Scalar.of(integer);
+        final Scalar scalar = Scalar.of(integer);
     }
 
     @Test
     void getValueOfScalar() {
-        final Scalar<Integer> scalar = Scalar.of(integer);
+        final Scalar scalar = Scalar.of(integer);
 
-        assertEquals(scalar.value(), integer);
+        assertEquals(scalar.value(), Double.valueOf(integer));
     }
 
     @Test
     void print() {
-        final Scalar<Integer> scalar = Scalar.of(integer);
+        final Scalar scalar = Scalar.of(integer);
 
         scalar.print();
     }

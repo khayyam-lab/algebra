@@ -2,19 +2,19 @@ package tech.siloxa.khayyam.algebra;
 
 import java.util.List;
 
-public class Tensor<T extends Number> {
+public class Tensor {
 
-    private final List<Matrix<T>> tensor;
+    private final List<Matrix> tensor;
 
-    public Tensor(List<Matrix<T>> tensor) {
+    public Tensor(List<Matrix> tensor) {
         this.tensor = tensor;
     }
 
-    public static <T extends Number> Tensor<T> of(List<Matrix<T>> tensor) {
-        return new Tensor<T>(tensor);
+    public static Tensor of(List<Matrix> tensor) {
+        return new Tensor(tensor);
     }
 
-    public List<Matrix<T>> value() {
+    public List<Matrix> value() {
         return tensor;
     }
 }

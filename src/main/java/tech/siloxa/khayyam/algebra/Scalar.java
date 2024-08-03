@@ -2,24 +2,24 @@ package tech.siloxa.khayyam.algebra;
 
 import java.util.Objects;
 
-public class Scalar<T extends Number> {
+public class Scalar {
 
-    private final T scalar;
+    private final Double scalar;
 
-    public Scalar(T scalar) {
-        this.scalar = scalar;
+    public Scalar(Number scalar) {
+        this.scalar = Double.valueOf(scalar.toString());
     }
 
-    public static <T extends Number> Scalar<T> of(T scalar) {
-        return new Scalar<T>(scalar);
+    public static Scalar of(Number scalar) {
+        return new Scalar(scalar);
     }
 
-    public T value() {
+    public Double value() {
         return scalar;
     }
 
-    public boolean equals(T value) {
-        return Objects.equals(scalar, value);
+    public boolean equals(Number value) {
+        return !Objects.equals(scalar, Double.valueOf(value.toString()));
     }
 
     @Override
